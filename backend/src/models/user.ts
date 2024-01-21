@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
     if(this.isModified ('password')) {
-        this.password= await bcrypt.hash(this.password, 8)
+        this.password= await bcrypt.hash(this.password, 8)  //Bcrypt is a hashing algorithm that transforms a plain text password into a fixed-length string of characters, called a hash.
     }
     next()
 })
